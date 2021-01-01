@@ -7,7 +7,7 @@ import React, {
 import "./StarItem.css";
 
 interface IRating {
-  id: number;
+  id: string;
   isActive: boolean;
 }
 
