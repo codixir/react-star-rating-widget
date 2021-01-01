@@ -27,7 +27,7 @@ const StarItem: FunctionComponent<ListItemProps> = ({
   const [style, setStyle] = useState<object>({});
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    updateStars(Number(e.target.id));
+    updateStars(Number((e.target as HTMLAnchorElement).id));
   };
 
   useEffect(() => {

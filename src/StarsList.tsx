@@ -23,22 +23,25 @@ type IProps = {
 };
 
 const data: IDATA = {
-  stars: []
+  stars: [],
+  currentRating: 0
 };
 
 const StarsList: FunctionComponent<IProps> = ({ numOfStars, color }) => {
-  const clonedData = JSON.parse(JSON.stringify(data));
-  const [stars, setRatings] = useState<IStar[]>(clonedData.stars);
+  const clonedStars = [...data.stars];
+  const [stars, setRatings] = useState<IStar[]>(clonedStars);
   const [currentRating, setCurrentRating] = useState<number>(0);
 
   const init = (num: number) => {
+    const res: IStar[] = [];
     for (let i = 1; i <= numOfStars; i++) {
-      stars.push({
+      res.push({
         id: i,
         isActive: false
       });
     }
-    setRatings([...stars]);
+    setCurrentRating(0);
+    setRatings([...res]);
   };
 
   useEffect(() => {
